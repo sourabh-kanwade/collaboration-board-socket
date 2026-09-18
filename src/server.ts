@@ -186,7 +186,10 @@ const allowedOrigins = (
   .map((entry) => entry.trim())
   .filter(Boolean);
 
-const httpServer = http.createServer();
+const httpServer = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("Socket server is running");
+});
 const io = new Server(httpServer, {
   transports: ["websocket", "polling"],
   cors: {
