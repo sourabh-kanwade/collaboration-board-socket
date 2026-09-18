@@ -8,7 +8,8 @@ log.setLevel(process.env.NODE_ENV === "production" ? "warn" : "info");
 
 const prisma = new PrismaClient();
 const hostname = "0.0.0.0";
-const port = Number(process.env.SOCKET_PORT || 3001);
+
+const port = Number(process.env.PORT || process.env.SOCKET_PORT || 3001);
 
 export interface Participant {
   id: string;
