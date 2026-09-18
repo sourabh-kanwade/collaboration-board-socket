@@ -1,0 +1,46 @@
+{
+  "name": "collaboration-board-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "pnpm typecheck && tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "pnpm lint && pnpm typecheck && node --import tsx --test server.test.ts",
+    "dev": "tsx watch server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.4.2",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.4.2",
+  "type": "module",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "dotenv": "^17.4.2",
+    "loglevel": "^1.9.2",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.1",
+    "eslint": "^10.10.0",
+    "prisma": "5.20.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.70.0"
+  }
+}
