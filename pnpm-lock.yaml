@@ -185,6 +185,9 @@ importers:
       '@types/node':
         specifier: ^26.6.1
         version: 26.6.1
+      esbuild:
+        specifier: ^0.28.2
+        version: 0.28.2
       eslint:
         specifier: ^10.10.0
         version: 10.10.0

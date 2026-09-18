@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "build": "pnpm typecheck && tsc",
+    "build": "pnpm typecheck && esbuild server.ts --bundle --packages=external --platform=node --format=esm --minify --outfile=dist/server.js",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
@@ -37,6 +37,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^26.6.1",
+    "esbuild": "^0.28.2",
     "eslint": "^10.10.0",
     "prisma": "5.20.0",
     "tsx": "^4.23.13",
