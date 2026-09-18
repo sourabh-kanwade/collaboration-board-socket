@@ -4,12 +4,12 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "build": "pnpm typecheck && esbuild server.ts --bundle --packages=external --platform=node --format=esm --minify --outfile=dist/server.js",
+    "build": "pnpm typecheck && esbuild src/server.ts --bundle --packages=external --platform=node --format=esm --minify --outfile=dist/server.js",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "test": "pnpm lint && pnpm typecheck && node --import tsx --test server.test.ts",
-    "dev": "tsx watch server.ts"
+    "test": "pnpm lint && pnpm typecheck && node --import tsx --test src/server.test.ts",
+    "dev": "tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "",
