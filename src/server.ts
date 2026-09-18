@@ -238,8 +238,8 @@ io.on("connection", (socket: Socket) => {
       const normalizedUserId = typeof userId === "string" ? userId.trim() : "";
       const board = boardId
         ? await (prisma as any).board
-            .findUnique({ where: { id: boardId } })
-            .catch(() => null)
+          .findUnique({ where: { id: boardId } })
+          .catch(() => null)
         : null;
       if (board && !isBoardOwnedByUser(board, normalizedUserId)) {
         log.warn("join-board rejected: board ownership mismatch", {
@@ -478,11 +478,11 @@ io.on("connection", (socket: Socket) => {
   });
 });
 
-import { fileURLToPath } from "url";
+
 import process from "process";
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  httpServer.listen(port, hostname, () => {
-    log.info(`Socket server ready at http://${hostname}:${port}`);
-  });
-}
+
+httpServer.listen(port, hostname, () => {
+  log.info(`Socket server ready at http://${hostname}:${port}`);
+});
+
