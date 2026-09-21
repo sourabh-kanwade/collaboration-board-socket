@@ -4,7 +4,7 @@ import { Server, Socket } from "socket.io";
 import { PrismaClient } from "@prisma/client";
 import log from "loglevel";
 
-log.setLevel(process.env.NODE_ENV === "production" ? "warn" : "info");
+log.setLevel(process.env.NODE_ENV === "production" ? "info" : "info");
 
 const prisma = new PrismaClient();
 const hostname = "0.0.0.0";
@@ -242,8 +242,8 @@ io.on("connection", (socket: Socket) => {
       const normalizedUserId = typeof userId === "string" ? userId.trim() : "";
       const board = boardId
         ? await (prisma as any).board
-          .findUnique({ where: { id: boardId } })
-          .catch(() => null)
+            .findUnique({ where: { id: boardId } })
+            .catch(() => null)
         : null;
       if (board && !isBoardOwnedByUser(board, normalizedUserId)) {
         log.warn("join-board rejected: board ownership mismatch", {
@@ -482,11 +482,8 @@ io.on("connection", (socket: Socket) => {
   });
 });
 
-
 import process from "process";
-
 
 httpServer.listen(port, hostname, () => {
   log.info(`Socket server ready at http://${hostname}:${port}`);
 });
-
